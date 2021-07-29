@@ -1,16 +1,7 @@
+import 'package:first_app/models/usersmModesl.dart';
 import 'package:flutter/material.dart';
 
-class UsersModel {
-  final int  id ;
-  final String name ;
-  final String phone;
 
-  UsersModel ({
-    required this.id,
-    required this.name,
-    required this.phone,
-  });
-}
 
 class ModelClass extends StatelessWidget {
   List <UsersModel> users = [
