@@ -2,9 +2,21 @@ import 'package:first_app/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   var emailController = TextEditingController();
+
   var passwordController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  var isPassword = true;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,61 +40,68 @@ class LoginScreen extends StatelessWidget {
                 height: 40.00,
               ),
               //by default TextFormField double.enfinity
-              TextFormField(
+              textField(
                 controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                onFieldSubmitted:(value)
-                {
-                  print(value);
-                },
-                onChanged: (String value)
-                {
-                  print(value);
-                },
-                decoration: InputDecoration(
-                  labelText: "Email Address",
-                  border:OutlineInputBorder(),
-                  prefixIcon: Icon(
-                    Icons.email,
-                  ),
-                ),
+                label: "Email Address",
+                Prefexicon:Icons.email ,
+                type: TextInputType.emailAddress,
+                // validate:(String value){
+                //   if(value.isEmpty){
+                //     return 'Email should Not be Empty';
+                //   }
+                //   return null;
+                // },
+                // onChange:( value){
+                //   print(value);
+                // },
+                // onSubmit:( value){
+                //   print(value);
+                // },
               ),
               SizedBox(
                 height: 20.00,
               ),
               //by default TextFormField double.enfinity
-              TextFormField(
-                controller: passwordController,
-                keyboardType: TextInputType.visiblePassword,
-                obscureText: true,
-                onFieldSubmitted:(value)
-                {
-                  print(value);
+              textField(
+                  controller: passwordController,
+                  label: "Password",
+                  Prefexicon:Icons.lock ,
+                  type: TextInputType.visiblePassword,
+                  // validate:(String value){
+                  //   if(value.isEmpty){
+                  //     return 'password Should not be empty';
+                  //   }
+                  //   return null;
+                  // },
+                  // onChange:( value){
+                  //   print(value);
+                  // },
+                  // onSubmit:( value){
+                  //   print(value);
+                  // },
+                Suffixicon: isPassword ? Icons.visibility : Icons.visibility_off,
+                isPassword: isPassword,
+                obsecure: (){
+                    setState(() {
+                      isPassword = !isPassword;
+                    });
                 },
-                onChanged: (String value)
-                {
-                  print(value);
-                },
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  border:OutlineInputBorder(),
-                  prefixIcon: Icon(
-                    Icons.lock,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.remove_red_eye,
-                  ),
-                ),
+
               ),
               SizedBox(
                 height: 20.00,
               ),
               LoginButton(
                 text: 'login',
-                function: (){
-                  print(emailController.text);
-                  print(passwordController.text);
-                },
+                function: ()
+                {
+                  // if(_formKey.currentState!.validate())
+                  // {
+                  //   print(emailController.text);
+                  //   print(passwordController.text);
+                  // }
+                  print ("xxx");
+                }
               ),
               SizedBox(
                 height: 20.00,
@@ -104,8 +123,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              
-
             ],
           ),
         ),

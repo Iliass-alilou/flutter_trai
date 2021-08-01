@@ -19,3 +19,42 @@ Widget LoginButton ({
     ),
   ),
 );
+
+
+
+Widget textField ({
+  required TextEditingController controller,
+  required TextInputType type,
+  // Function? onSubmit,
+  // Function? onChange,
+  //required Function validate,
+  required String label,
+  required IconData Prefexicon,
+  bool isPassword =false,
+  IconData? Suffixicon,
+  Function? obsecure,
+
+
+}) => TextFormField(
+  controller: controller,
+  keyboardType: type,
+  // onFieldSubmitted:onSubmit!(),
+  // onChanged: onChange!(),
+  //validator: validate(),
+  obscureText: isPassword,
+
+
+  decoration: InputDecoration(
+    labelText: label,
+    border:OutlineInputBorder(),
+    prefixIcon: Icon(
+      Prefexicon,
+    ),
+    suffixIcon:Suffixicon != null ? IconButton(
+      icon: Icon(
+        Icons.remove_red_eye,
+      ),
+      onPressed: obsecure!(),
+    ):null ,
+  ),
+);
