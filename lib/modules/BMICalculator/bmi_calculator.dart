@@ -319,7 +319,7 @@ class _BMI_CalcualtorState extends State<BMI_Calcualtor> {
                 'CALCULATE',
                 style: TextStyle(
                   fontSize: 25.0,
-                  color: Colors.white,
+                  color: Color(0xffFFFFFF),
                 ),
               ),
             ),

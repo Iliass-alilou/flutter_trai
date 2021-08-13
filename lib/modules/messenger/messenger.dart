@@ -148,7 +148,6 @@ class Messenger extends StatelessWidget {
               backgroundColor: Colors.green,
             ),
           ),
-
         ],
       ),
       SizedBox(

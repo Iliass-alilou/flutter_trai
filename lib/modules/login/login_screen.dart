@@ -45,18 +45,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 label: "Email Address",
                 Prefexicon:Icons.email ,
                 type: TextInputType.emailAddress,
-                // validate:(String value){
-                //   if(value.isEmpty){
-                //     return 'Email should Not be Empty';
-                //   }
-                //   return null;
-                // },
-                // onChange:( value){
-                //   print(value);
-                // },
-                // onSubmit:( value){
-                //   print(value);
-                // },
+                validate: (String value){
+                  if(value.isEmpty){
+                    print("email must not be embty");
+                  }
+                  else
+                    return null;
+                },
+                onTap: ()
+                {
+                  return null;
+                },
+
               ),
               SizedBox(
                 height: 20.00,
@@ -67,24 +67,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   label: "Password",
                   Prefexicon:Icons.lock ,
                   type: TextInputType.visiblePassword,
-                  // validate:(String value){
-                  //   if(value.isEmpty){
-                  //     return 'password Should not be empty';
-                  //   }
-                  //   return null;
-                  // },
-                  // onChange:( value){
-                  //   print(value);
-                  // },
-                  // onSubmit:( value){
-                  //   print(value);
-                  // },
+                validate: (String value){
+                  if(value.isEmpty){
+                    print("password must not be embty");
+                  }
+                  else
+                    return null;
+                },
+
                 Suffixicon: isPassword ? Icons.visibility : Icons.visibility_off,
                 isPassword: isPassword,
                 obsecure: (){
                     setState(() {
                       isPassword = !isPassword;
                     });
+                },
+                onTap: (){
+                    return null;
                 },
 
               ),

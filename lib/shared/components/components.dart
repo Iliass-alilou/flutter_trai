@@ -20,30 +20,26 @@ Widget LoginButton ({
   ),
 );
 
-
-
 Widget textField ({
   required TextEditingController controller,
   required TextInputType type,
-  // Function? onSubmit,
-  // Function? onChange,
-  //required Function validate,
+  //Function? onSubmit,
+  //Function? onChange,
+  Function? validate,
   required String label,
   required IconData Prefexicon,
   bool isPassword =false,
   IconData? Suffixicon,
   Function? obsecure,
-
-
+  required Function onTap,
 }) => TextFormField(
   controller: controller,
   keyboardType: type,
-  // onFieldSubmitted:onSubmit!(),
-  // onChanged: onChange!(),
-  //validator: validate(),
+  //onFieldSubmitted:onSubmit!(),
+  //onChanged: onChange!(),
+  //validator: validate!(),
+  onTap: onTap(),
   obscureText: isPassword,
-
-
   decoration: InputDecoration(
     labelText: label,
     border:OutlineInputBorder(),
